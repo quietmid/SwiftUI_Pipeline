@@ -21,4 +21,4 @@ jobs:
           xcodebuild test \
             -project "Other Projects/Calculator/Calculator/Calculator.xcodeproj" \
             -scheme Calculator \
-            -destination 'platform=iOS Simulator,name=iPhone 16'
+            -destination 'platform=iOS Simulator,name=iPhone 17'
