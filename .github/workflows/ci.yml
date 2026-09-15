@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    name: Calculator tests
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Run Calculator tests
+        run: |
+          xcodebuild test \
+            -project "Other Projects/Calculator/Calculator/Calculator.xcodeproj" \
+            -scheme Calculator \
+            -destination 'platform=iOS Simulator,name=iPhone 16'
