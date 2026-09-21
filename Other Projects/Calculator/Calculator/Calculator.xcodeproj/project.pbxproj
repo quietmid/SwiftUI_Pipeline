@@ -132,6 +132,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB5DD73922A8D8D100642035 /* Build configuration list for PBXNativeTarget "Calculator" */;
 			buildPhases = (
+				1EA98C213061BADB0088A978 /* Run Script */,
 				FB5DD72122A8D8D000642035 /* Sources */,
 				FB5DD72222A8D8D000642035 /* Frameworks */,
 				FB5DD72322A8D8D000642035 /* Resources */,
@@ -139,6 +140,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1EA98C233061BCDB0088A978 /* PBXTargetDependency */,
 			);
 			name = Calculator;
 			productName = Calculator;
@@ -173,6 +175,9 @@
 				Base,
 			);
 			mainGroup = FB5DD71C22A8D8D000642035;
+			packageReferences = (
+				1EA98C1E3061B9430088A978 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			productRefGroup = FB5DD72622A8D8D000642035 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,6 +208,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1EA98C213061BADB0088A978 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint --strict\nelse\n  echo \"warning: SwiftLint not installed. Run: brew install swiftlint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1EAD640130597F6B006393E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -225,6 +252,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1EA98C233061BCDB0088A978 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 1EA98C223061BCDB0088A978 /* SwiftLintBuildToolPlugin */;
+		};
 		1EAD640A30597F6B006393E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FB5DD72422A8D8D000642035 /* Calculator */;
@@ -484,6 +515,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1EA98C1E3061B9430088A978 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.65.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1EA98C223061BCDB0088A978 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1EA98C1E3061B9430088A978 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB5DD71D22A8D8D000642035 /* Project object */;
 }

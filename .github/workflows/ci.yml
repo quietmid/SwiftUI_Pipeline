@@ -21,3 +21,27 @@ jobs:
             -project "Other Projects/Calculator/Calculator/Calculator.xcodeproj" \
             -scheme Calculator \
             -destination 'platform=iOS Simulator,name=iPhone 17'
+
+      - name: Run SwiftLint
+        working-directory: "Other Projects/Calculator"
+        run: swiftlint lint --strict --reporter github-actions-logging
+
+      - name: Generate coverage report
+        if: always()
+        run: |
+          xcrun xccov view --report --json TestResults.xcresult > coverage.json
+          xcrun xccov view --report TestResults.xcresult
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults.xcresult
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.json
